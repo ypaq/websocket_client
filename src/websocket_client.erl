@@ -186,6 +186,7 @@ transport(wss, SSLVerify) ->
                {active, true},
                SSLVerify,
                {packet, 0},
+               {keepalive, true},
                {send_timeout, timer:minutes(1)},
                {send_timeout_close, true}
               ]};
@@ -199,6 +200,7 @@ transport(ws, _) ->
                 binary,
                 {active, true},
                 {packet, 0},
+                {keepalive, true},
                 {send_timeout, timer:minutes(1)},
                 {send_timeout_close, true}
                ]}.
