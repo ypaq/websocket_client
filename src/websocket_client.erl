@@ -185,7 +185,9 @@ transport(wss, SSLVerify) ->
                {mode, binary},
                {active, true},
                SSLVerify,
-               {packet, 0}
+               {packet, 0},
+               {send_timeout, timer:minutes(1)},
+               {send_timeout_close, true}
               ]};
 transport(ws, _) ->
     #transport{
@@ -196,7 +198,9 @@ transport(ws, _) ->
         opts = [
                 binary,
                 {active, true},
-                {packet, 0}
+                {packet, 0},
+                {send_timeout, timer:minutes(1)},
+                {send_timeout_close, true}
                ]}.
 
 ssl_verify(verify_none) ->
